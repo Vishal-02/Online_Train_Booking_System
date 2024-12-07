@@ -1,0 +1,97 @@
+*{
+	font-family: 'poppins', sans-serif;
+}
+
+body {
+    background-image: url('https://i.redd.it/u6rxthrum7c61.jpg');
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    padding: 20px;
+    text-align: right;
+}
+
+.logout-btn {
+    background-color: purple;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.welcome-container {
+    width: 100%;
+    max-width: 1000px; 
+    margin-bottom: 30px;
+    margin-right: 30px;
+}
+
+.welcome-btn {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: black;
+    padding: 40px 20px; /* Increase top and bottom padding */
+    border-radius: 10px;
+    font-size: 36px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 100%;
+    min-height: 100px; /* Set a minimum height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button-container {
+   display: grid; /* Use grid layout */
+   grid-template-columns: repeat(3, 1fr);
+   gap: 30px; /* Space between buttons */
+   max-width: 1000px; /* Limit width to match other containers */
+   width: 100%; /* Full width */
+   margin-top: 20px; /* Margin above button container */
+}
+
+.btn {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 150px; /* Fixed height for buttons */
+   background-color: rgba(255, 255, 255, 0.8);
+   color: black; /* Text color */
+   text-decoration: none; 
+   border-radius: 10px; /* Rounded corners */
+   font-size: 20px; /* Font size */
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+   transition: all 0.3s; /* Smooth transition on hover */
+}
+
+.btn:hover {
+   background-color: purple; /* Change to purple on hover */
+   color: white; /* Text becomes white on hover */
+}
+
+@media (max-width: 768px) {
+   .button-container {
+       grid-template-columns: repeat(2, 1fr); /* Change to two columns on smaller screens */
+   }
+
+   .btn {
+       height:auto; /* Allow height to adjust based on content */
+       margin-bottom: 20px; /* Margin between stacked buttons */
+   }
+}

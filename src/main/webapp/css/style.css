@@ -1,0 +1,68 @@
+*{
+	font-family: 'poppins', sans-serif;
+}
+
+body {
+    /*background-image: url('https://i.redd.it/u6rxthrum7c61.jpg');*/
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                url('https://i.redd.it/u6rxthrum7c61.jpg') no-repeat center center/cover;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+h2 {
+	color: white; 
+	font-size: 36px; 
+	margin-right: 200px; 
+	margin-left: -100px;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.shifted-text {
+    margin-left: 40px; /* Adjust this value as needed */
+    display: inline-block; /* Ensure it respects margin */
+}
+
+.login-container, .dashboard-container {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    text-align: center;
+}
+
+h3 {
+    color: #333;
+}
+
+table {
+    margin: 0 auto;
+}
+
+input[type="text"], input[type="password"], input[type="submit"] {
+    width: 100%;
+    padding: 8px;
+    margin: 4px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type="submit"] {
+    background-color: purple;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+input[type="submit"]:hover {
+    background-color: #800080; /* Darker shade of purple */
+}
