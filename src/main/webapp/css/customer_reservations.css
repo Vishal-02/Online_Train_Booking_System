@@ -16,6 +16,8 @@ body {
 header {
     padding: 20px;
     text-align: right;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .logout-btn {

@@ -17,6 +17,7 @@
 </head>
 <body>
     <header>
+        <a href="customer_rep_homepage.jsp" class="logout-btn">Home</a>
         <a href="login.jsp" class="logout-btn">Logout</a>
     </header>
 
