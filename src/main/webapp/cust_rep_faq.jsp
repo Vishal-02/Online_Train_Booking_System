@@ -11,7 +11,7 @@
     <title>Customer FAQ</title>
     <link href="css/customer_rep_faq.css" rel="stylesheet">
 </head>
-<body>
+<body>	
     <header>
         <a href="customer_rep_homepage.jsp" class="back-btn">Back to Homepage</a>
     </header>
