@@ -3,7 +3,7 @@
 }
 
 body {
-    background-image: url('https://i.redd.it/u6rxthrum7c61.jpg');
+	background-image: url('https://i.redd.it/u6rxthrum7c61.jpg');
     background-size: cover;
     background-position: center;
     margin: 0;
@@ -11,155 +11,102 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    line-height: 1.6;
+    color: #333;
+    max-width: 800px;
 }
 
 header {
-    padding: 20px;
-    text-align: right;
-}
-
-.logout-btn {
-    background-color: purple;
+    background-color: #007bff;
     color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-}
-
-main {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.welcome-container {
-    width: 100%;
-    max-width: 1000px; 
-    margin-bottom: 30px;
-    margin-right: 30px;
-}
-
-.welcome-btn {
-    background-color: rgba(255, 255, 255, 0.8);
-    color: black;
-    padding: 40px 20px; /* Increase top and bottom padding */
-    border-radius: 10px;
-    font-size: 36px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 1rem;
     text-align: center;
-    width: 100%;
-    min-height: 100px; /* Set a minimum height */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    border-radius: 5px;
+    margin-bottom: 20px;
 }
 
-.button-container {
-   display: grid; /* Use grid layout */
-   grid-template-columns: repeat(2, 1fr); /* Create three equal columns */
-   gap: 30px; /* Space between buttons */
-   max-width: 1000px; /* Limit width to match other containers */
-   width: 100%; /* Full width */
-   margin-top: 20px; /* Margin above button container */
+h1 {
+    margin: 0;
 }
 
-.btn {
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   height: 150px; /* Fixed height for buttons */
-   background-color: rgba(255, 255, 255, 0.8);
-   color: black; /* Text color */
-   text-decoration: none; 
-   border-radius: 10px; /* Rounded corners */
-   font-size: 20px; /* Font size */
-   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-   transition: all 0.3s; /* Smooth transition on hover */
+h2 {
+    color: #007bff;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
 }
 
-.btn:hover {
-   background-color: purple; /* Change to purple on hover */
-   color: white; /* Text becomes white on hover */
-}
-
-@media (max-width: 768px) {
-   .button-container {
-       grid-template-columns: repeat(2, 1fr); /* Change to two columns on smaller screens */
-   }
-
-   .btn {
-       height:auto; /* Allow height to adjust based on content */
-       margin-bottom: 20px; /* Margin between stacked buttons */
-   }
-}
-
-.faq-container {
-    background-color: rgba(255, 255, 255, 0.9);
+section {
+    background-color: white;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    width: 100%;
-    max-width: 800px;
-    margin: 20px auto;
-}
-
-.search-container {
-    display: flex;
     margin-bottom: 20px;
-}
-
-.search-container input {
-    flex-grow: 1;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px 0 0 5px;
-}
-
-.search-container button {
-    padding: 10px 20px;
-    background-color: purple;
-    color: white;
-    border: none;
-    border-radius: 0 5px 5px 0;
-    cursor: pointer;
-}
-
-.faq-item {
-    margin-bottom: 20px;
-    padding: 10px;
-    background-color: #f0f0f0;
     border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-.faq-item h3 {
-    margin-top: 0;
-    color: purple;
-}
-
-.reply-section, .ask-question-section {
-    margin-top: 30px;
-}
-
-textarea, select {
+#ask-question textarea {
     width: 100%;
-    padding: 10px;
+    height: 100px;
     margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    resize: vertical;
 }
 
 button {
-    padding: 10px 20px;
-    background-color: purple;
+    background-color: #007bff;
     color: white;
+    padding: 10px 15px;
     border: none;
-    border-radius: 5px;
+    border-radius: 4px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #800080;
+    background-color: #0056b3;
+}
+
+#search-questions input {
+    width: calc(100% - 90px);
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.question-item {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.question-item h3 {
+    margin-top: 0;
+    color: #007bff;
+}
+
+.question-item p {
+    margin-bottom: 5px;
+}
+
+.question-item p:last-child {
+    margin-bottom: 0;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    #search-questions input {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    #search-questions button {
+        width: 100%;
+    }
 }

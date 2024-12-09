@@ -28,7 +28,9 @@
             <a href="edit_train_schedule.jsp" class="btn">Edit Train Schedule</a>
             <a href="get_station_schedule.jsp" class="btn">Get Station Schedule</a>
             <a href="customer_reservations.jsp" class="btn">Customer Reservations</a>
-            <a href="faq.jsp" class="btn">Customer FAQ</a> <!-- Link to FAQ page -->
+            <a href="cust_rep_faq.jsp?username=<%= session.getAttribute("employeeUsername") %>" class="btn" id="faq-button">
+            	Customer FAQ
+            </a>
         </div>
     </main>
 </body>

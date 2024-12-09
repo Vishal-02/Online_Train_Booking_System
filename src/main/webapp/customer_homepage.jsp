@@ -16,6 +16,11 @@
     <link href="css/customer_homepage.css" rel="stylesheet">
 </head>
 <body>
+	<%
+	String customerName = (String) session.getAttribute("customerName");
+	System.out.println("Customer homepage accessed by: " + customerName);
+	%>
+	
     <header>
         <a href="login.jsp" class="logout-btn">Logout</a>
     </header>
@@ -27,7 +32,9 @@
         <div class="button-container">
             <a href="make_reservation.jsp" class="btn">Make a Train Reservation</a>
             <a href="reservation_history.jsp" class="btn">View Reservation History</a>
-            <a href="faq.jsp" class="btn">FAQ</a>
+            <a href="customer_faq.jsp?username=<%= session.getAttribute("customerName") %>" class="btn">
+            	FAQ
+            </a>
         </div>
     </main>
 </body>

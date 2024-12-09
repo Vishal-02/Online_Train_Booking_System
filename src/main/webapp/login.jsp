@@ -24,7 +24,7 @@
         <div class="login-container">
 
             <%
-                String URL = "jdbc:mysql://localhost:3306/barbeerdrinkersample";
+                String URL = "jdbc:mysql://localhost:3306/railwaysystem";
                 String User = "root"; 
                 String Password = "fl3xwm3";  
 
@@ -42,12 +42,13 @@
                         String username = request.getParameter("username");
                         String password = request.getParameter("password");
 
-                        String customerSQL = "SELECT * FROM customers WHERE username = '" + username + "' AND password = '" + password + "'";
+                        String customerSQL = "SELECT * FROM customer WHERE username = '" + username + "' AND pswd = '" + password + "'";
                         rs = stmt.executeQuery(customerSQL);
 
                         if (rs.next()) {
                             custFlag = true;
                             session.setAttribute("customerName", username);
+                            System.out.println("Customer Username: " + username);
                         }
 
                         if (custFlag) {
@@ -61,25 +62,54 @@
                         String username = request.getParameter("username");
                         String password = request.getParameter("password");
 
-                        String employeeSQL = "SELECT * FROM employees WHERE username = '" + username + "' AND password = '" + password + "'";
-                        rs = stmt.executeQuery(employeeSQL);
+                        try {
+                            // Query to fetch the employee's details
+                            String employeeSQL = "SELECT SSN FROM employee WHERE username = ? AND pswd = ?";
+                            PreparedStatement employeeStmt = conn.prepareStatement(employeeSQL);
+                            employeeStmt.setString(1, username);
+                            employeeStmt.setString(2, password);
+                            rs = employeeStmt.executeQuery();
 
-                        if (rs.next()) {
-                            session.setAttribute("employeeName", username);
-                            response.sendRedirect("admin_homepage.jsp");
-                        } else {
-                        	String custRepSQL = "SELECT * FROM cust_rep WHERE username = '" + username + "' AND password = '" + password + "'";
-                            rs = stmt.executeQuery(custRepSQL);
-                            
                             if (rs.next()) {
-                            	session.setAttribute("employeeName", username);
-                            	response.sendRedirect("customer_rep_homepage.jsp");
+                                // Get the SSN of the logged-in employee
+                                String ssn = rs.getString("SSN");
+
+                                // Check if the SSN exists in the manager_admin table
+                                String adminCheckSQL = "SELECT * FROM manager_admin WHERE SSN = ?";
+                                PreparedStatement adminStmt = conn.prepareStatement(adminCheckSQL);
+                                adminStmt.setString(1, ssn);
+                                ResultSet adminRs = adminStmt.executeQuery();
+
+                                if (adminRs.next()) {
+                                    // If SSN matches in manager_admin table, redirect to admin homepage
+                                    session.setAttribute("employeeName", username);
+                                    response.sendRedirect("admin_homepage.jsp");
+                                } else {
+                                    // Check if the SSN exists in the customer_representative table
+                                    String custRepCheckSQL = "SELECT * FROM customer_representative WHERE SSN = ?";
+                                    PreparedStatement custRepStmt = conn.prepareStatement(custRepCheckSQL);
+                                    custRepStmt.setString(1, ssn);
+                                    ResultSet custRepRs = custRepStmt.executeQuery();
+
+                                    if (custRepRs.next()) {
+                                        // If SSN matches in customer_representative table, redirect to customer representative homepage
+                                        session.setAttribute("employeeName", username);
+                                        response.sendRedirect("customer_rep_homepage.jsp");
+                                    } else {
+                                        // If SSN doesn't match either table, show an error
+                                        out.println("<p style='color:red;'>Access Denied: Unauthorized SSN.</p>");
+                                    }
+                                }
                             } else {
-                            	out.println("<p style='color:red;'>Invalid employee username or password. Please try again.</p>");
+                                // If no employee is found with the given username and password
+                                out.println("<p style='color:red;'>Invalid username or password. Please try again.</p>");
                             }
-                            
+                        } catch (SQLException e) {
+                            e.printStackTrace();
+                            out.println("<p style='color:red;'>An error occurred. Please try again later.</p>");
                         }
                     }
+
                 } catch (Exception e) {
                     out.println("<p style='color:red;'>Database connection error: " + e.getMessage() + "</p>");
                 } finally {
