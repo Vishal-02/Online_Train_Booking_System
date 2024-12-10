@@ -13,7 +13,7 @@
 
     <%
         // Retrieve the customer's username from the session
-        String customerName = (String) session.getAttribute("customerName");
+        String customerName = (String) session.getAttribute("username");
 
         if (customerName == null) {
             // Redirect to login if the session is not valid

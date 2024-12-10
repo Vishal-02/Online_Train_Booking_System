@@ -28,7 +28,7 @@
             <a href="edit_train_schedule.jsp" class="btn">Edit Train Schedule</a>
             <a href="get_station_schedule.jsp" class="btn">Get Station Schedule</a>
             <a href="customer_reservations.jsp?username=<%= session.getAttribute("employeeUsername") %>" class="btn">Customer Reservations</a>
-            <a href="cust_rep_faq.jsp?username=<%= session.getAttribute("employeeUsername") %>" class="btn" id="faq-button">
+            <a href="cust_rep_faq.jsp?username=<%= session.getAttribute("username") %>" class="btn" id="faq-button">
             	Customer FAQ
             </a>
         </div>

@@ -1,26 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ page import="java.sql.*" %>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Customer Reservations</title>
+    <title>Train Schedules</title>
     <link href="css/customer_reservations.css" rel="stylesheet">
 </head>
 <body>
     <header>
-        <a href="customer_rep_homepage.jsp" class="back-btn">Back to Homepage</a>
+        <a href="customer_homepage.jsp" class="back-btn">Back to Homepage</a>
     </header>
     <main>
         <div class="reservation-container">
             <h1>Train Schedules</h1>
-            <form method="GET" action="customer_reservations.jsp">
+            <form method="GET">
                 <label for="station">Select Station (Origin/Destination):</label>
                 <select name="station" id="station" required>
                     <option value="">--Select a Station--</option>
-                    <%                    	
+                    <%
                         Connection conn = null;
                         Statement stmt = null;
                         ResultSet rs = null;

@@ -32,7 +32,7 @@
         <div class="button-container">
             <a href="make_reservation.jsp" class="btn">Make a Train Reservation</a>
             <a href="reservation_history.jsp" class="btn">View Reservation History</a>
-            <a href="customer_faq.jsp?username=<%= session.getAttribute("customerName") %>" class="btn">
+            <a href="customer_faq.jsp?username=<%= session.getAttribute("username") %>" class="btn">
             	FAQ
             </a>
         </div>

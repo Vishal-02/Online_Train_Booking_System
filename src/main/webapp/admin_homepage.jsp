@@ -25,7 +25,7 @@
             <div class="welcome-btn">Welcome, admin <%= session.getAttribute("employeeName") %>!</div>
         </div>
         <div class="button-container">
-            <a href="add_customer.jsp" class="btn">Edit Customer Rep Info</a>
+            <a href="edit_customer_rep.jsp" class="btn">Edit Customer Rep Info</a>
             <a href="sales_report.jsp" class="btn">Sales Report</a>
             <a href="reservations_list.jsp" class="btn">List of Reservations</a>
             <a href="revenue_report.jsp" class="btn">Revenue Report</a>

@@ -39,7 +39,7 @@
                         if (request.getParameter("replySubmit") != null) {
                             String reply = request.getParameter("reply");
                             int questionId = Integer.parseInt(request.getParameter("questionId"));
-                            String username = (String) session.getAttribute("employeeName");
+                            String username = (String) session.getAttribute("username");
 
                             String updateQuery = "UPDATE questions SET reply = ?, cust_rep_username = ? WHERE question_id = ?";
                             updateStmt = conn.prepareStatement(updateQuery);

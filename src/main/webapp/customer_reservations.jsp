@@ -72,11 +72,12 @@
                 conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/railwaysystem", "root", "fl3xwm3");
 
                 // Step 2: SQL query to fetch reservations for selected transit line and date
-                String query = "SELECT r.Passenger, r.Reservation_No, r.Date, r.Total_Fare, r.No_of_Tickets " +
+                // Add DISTINCT to make sure each reservation is unique in the result set
+                String query = "SELECT DISTINCT r.Passenger, r.Reservation_No, r.Date, r.Total_Fare, r.No_of_Tickets " +
                                "FROM reservations r " +
                                "JOIN train_schedule ts ON DATE(ts.Departure_Datetime) = ? " +
                                "WHERE ts.Transit_Line_Name = ?";
-                
+
                 ps = conn.prepareStatement(query);
                 ps.setString(1, date);  // Set the date parameter
                 ps.setString(2, transitLine);  // Set the transit line parameter
